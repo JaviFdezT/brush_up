@@ -4,7 +4,7 @@
 This app allows you to brush up your language skills and manage those words that you are studying in a database. Moreover, you can find an annex about pronunciation.
 
 #How to use
-0. Install requirements (Python3) and external libraries (tkinter, matplotlib, time, os, sqlite3, shutil, random, math, webbrowser, PIL, pronouncing, logging, smtplib, email)
+0. Install requirements (Python3) and external libraries (tkinter,sqlite3; matplotlib, time, os, , shutil, random, math, webbrowser, PIL, pronouncing, logging, smtplib, email)
 
 1. Start the application by executing the script inside "brush_up/BrushUp/brushup.py". It can be done from the command line: "python3 brushup.py".
 
