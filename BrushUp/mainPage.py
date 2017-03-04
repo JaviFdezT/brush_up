@@ -904,7 +904,6 @@ class StartApp():
         Button(f2, text='Restart game', command=lambda:self.restartLevels(f2)).grid(row=3, column=2)
         Label(f2,text="".ljust(30,"-"),background=self.colour).grid(row=4, column=2)
         Button(f2, text='Import data from database', command=lambda:self.importData(f2)).grid(row=5, column=2)
-        Button(f2, text='Import data from database', command=lambda:self.importData(f2)).grid(row=5, column=2)
         Label(f2,text="".ljust(30,"-"),background=self.colour).grid(row=6, column=2)
         Button(f2, text='Open log file', command=lambda:webbrowser.open("LOGS/log.log") and self.GoToMenu(f2)).grid(row=7, column=2)
         Label(f2,text="".ljust(30,"-"),background=self.colour).grid(row=8, column=2)
