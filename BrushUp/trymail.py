@@ -92,10 +92,10 @@ class Email():
 
             text = MIMEText("test")
             msg.attach(text)
-            if bool:
+            if bool=="True":
                 image = MIMEImage(img_data, name=os.path.basename("temp.png"))
                 msg.attach(image)
-            if bool2:
+            if bool2=="True":
                 img_data = open("plot.png", 'rb').read()
                 image = MIMEImage(img_data, name=os.path.basename("plot.png"))
                 msg.attach(image)
@@ -111,9 +111,9 @@ class Email():
             s.sendmail(self.fromaddr, self.toaddrs, msg.as_string())
             s.quit()
             logging.info("New mail sent to"+self.toaddrs)
-            if bool:
+            if bool=="True":
                 os.remove("temp.png")
-            if bool2:
+            if bool2=="True":
                 os.remove("plot.png")
 
       

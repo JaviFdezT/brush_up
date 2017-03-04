@@ -111,7 +111,7 @@ class StartApp():
                     plt.xlim(0.5, 10.5)
                     plt.savefig('plot.png')
                 E=Email(self.loggedUser)
-                E.sendpic(bool(props["boolincludeword"+self.loggedUser]),bool(props["boolincludestats"+self.loggedUser]))
+                E.sendpic(str(props["boolincludeword"+self.loggedUser]),str(props["boolincludestats"+self.loggedUser]))
         except KeyError:
             file=open("PROPS/props.properties",'r')
             props={}

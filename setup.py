@@ -8,7 +8,7 @@ setup(
   author = 'Javier Fdez. Troncoso',
   author_email = 'javierfdeztroncoso@gmail.com',
   url = 'https://github.com/JaviFdezT/brush_up', # use the URL to the github repo
-  download_url = 'https://github.com/JaviFdezT/brush_up',
+  download_url = 'https://github.com/JaviFdezT/brush_up/releases/tag/0.1',
   keywords = ['english', 'pronunciation', 'game','learn'],
   install_requires=[
         "Pillow",
