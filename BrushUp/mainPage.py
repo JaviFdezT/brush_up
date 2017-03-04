@@ -87,6 +87,7 @@ class StartApp():
         self.raise_frame(self.f1)
     
     def exit(self):
+        self.window.destroy()
         file=open("PROPS/props.properties",'r')
         props={}
         for line in file:
@@ -125,7 +126,7 @@ class StartApp():
             for prop in props:
                 file.write(str(prop)+"="+str(props[prop])+"\n")
             file.close()
-        self.window.destroy()
+
             
     def ChangPass(self):
         self.f1.grid_forget()
