@@ -8,10 +8,15 @@ This app allows you to brush up your language skills and manage those words that
 
    b) Install external libraries(tkinter,sqlite3; matplotlib, time, os, shutil, random, math, webbrowser, PIL, pronouncing, logging, smtplib, email):
 In linux (command line):
+
 sudo apt-get install python3-tk
+
 sudo apt-get install libsqlite3-dev
+
 sudo pip3 matplotlib
+
 sudo pip3 Pillow
+
 sudo pip3 pronouncing
 
 
