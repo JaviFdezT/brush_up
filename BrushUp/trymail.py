@@ -16,8 +16,19 @@ from __init__ import *
  
 
 class Email():
+    """ 
+    Class to send automatic mails
+    """
+    
     def __init__(self,user):
-        """ Look for the properties """
+        """ 
+        The self is created. The sender and recipient are defined. The recipient
+            is obtained from the properties file, where it is saved as:
+            "sendT"+user
+            
+        Args:
+            user: user name of the user who will receive the email.
+        """
         self.user=user
         self.fromaddr = 'brushupjft@gmail.com'
         self.smtpstring='smtp.gmail.com:587'
@@ -34,8 +45,13 @@ class Email():
         file.close()
 
     def sendmail(self,subject, text):
-        """ Send an email """
-        # Enviando el correo
+        """ 
+        Sends an email with an specific content and subject
+        
+        Args:   
+            subject: title of the email
+            text: content of the email
+        """
         server = smtplib.SMTP(self.smtpstring)
         server.starttls()
         server.login('brushupjft@gmail.com',str(b.b64decode (self.p)).replace("b'","").replace("'",""))
@@ -46,7 +62,16 @@ class Email():
         print("sent")
       
     def sendpic(self,bool,bool2):
-        """ Send an email with the statistics and the word of the day """
+        """ 
+        Sends an email with information about the user account
+        
+        Args:
+            bool: boolean. If True, the email will include information about one
+                of the words in the user's database. This word is randomly 
+                generated.
+            bool2: boolean. If True, the email will include the statistics about 
+                the game to the user. 
+        """
         file=open("LOGS/log.log",'r')
         mailssent=[]
         for line in file:
@@ -120,7 +145,7 @@ class Email():
 
       
 if __name__=="__main__":
-    E=Email("javi")
+    E=Email("admin")
     E.sendpic(False,False)
     
 

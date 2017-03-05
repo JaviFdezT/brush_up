@@ -9,9 +9,20 @@ import time
 
 
 class LoginPage(object):
+    """ 
+    Main class. This is the class that the user has to execute to start the app.
+    
+    In this class, a window to log in / sign up is created
+    """
     
     def __init__(self):
-        """ Create the window in which the user can log in and sign in """
+        """ 
+        Once this class is executed, this function is run. 
+        
+        This method creates the window in which the user can log in or sign up 
+        
+        The self is defined
+        """
         self.window = Tk()
         
         self.window.geometry("400x210")
@@ -41,15 +52,18 @@ class LoginPage(object):
         Entry(self.f2, textvariable=self.password,show="*").grid(row=2, column=2)
  
         Button(self.f1, text='Log in', command=lambda:self.raise_frame(self.f2) or self.login()).grid(row=4, column=2)
-        Button(self.f1, text='Sign in', command=lambda:self.signin()).grid(row=5, column=2)
+        Button(self.f1, text='Sign Un', command=lambda:self.signup()).grid(row=5, column=2)
         Button(self.f2, text='Log in', command=lambda:self.raise_frame(self.f2) or self.login()).grid(row=4, column=2)
-        Button(self.f2, text='Sign in', command=lambda:self.signin()).grid(row=5, column=2)
+        Button(self.f2, text='Sign Up', command=lambda:self.signup()).grid(row=5, column=2)
         
         self.raise_frame(self.f1)
         self.window.mainloop() 
         
     def login(self):
-            """ Login process """
+            """ 
+            This method checks if the credentials provided match any user
+                in the database "users.db"
+            """
             result = [self.user.get(), self.password.get()]
             con=UsersDDBB()
             users=list(con.showUsers())
@@ -63,8 +77,11 @@ class LoginPage(object):
             if userExists==False:     
                 self.raise_frame(self.f2)
                 
-    def signin(self):
-            """ Check if a provided username already exists before proceeding to create it """
+    def signup(self):
+            """ 
+            Checks if a provided user name already exists before proceeding to
+                create the user.  
+            """
             result = [self.user.get(), self.password.get()]
             con=UsersDDBB()
             users=list(con.showUsers())
@@ -81,7 +98,15 @@ class LoginPage(object):
                 self.createUser(str(self.user.get()), str(self.password.get()))
                 
     def createUser(self,user,password):
-        """ Create a new user """
+        """ 
+        This method proceeds to create a new user. It involves creating a new 
+        database, modifying the properties file and adding the word "brush up" 
+        inside the database that has just been create
+        
+        Args:
+            user: user name for the new user
+            password: password for the new user
+        """
         C=UsersDDBB()
         C.insUs(user, password)
         C.closeCon()
@@ -109,7 +134,9 @@ class LoginPage(object):
         self.raise_frame(self.f1)
         
     def raise_frame(self,frame):
-        """ Raise a new frame inside the window """
+        """ 
+        Raises a new frame inside the window 
+        """
         frame.tkraise()
     
 c=LoginPage()  

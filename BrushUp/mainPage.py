@@ -20,9 +20,21 @@ from  trymail import Email
 from __init__ import *
 
 class StartApp():
+    """ 
+    This is the class that will define the window where the game will appear, 
+        its configuration, the dictionaries and theory. 
+    """
     
     def __init__(self,loggedUser):
-        """ Look for the properties file and create the new window """
+        """ 
+        Once this class is executed, this function is run. 
+        
+        This method creates the window in which the user can play with his/her 
+            content.  The properties of the new window are obtained from the 
+            properties file.
+        
+        The self is defined
+        """
         file=open("PROPS/props.properties",'r')
         props={}
         for line in file:
@@ -60,7 +72,9 @@ class StartApp():
         
         
     def MainMenu(self):
-        """ Show the main menu """
+        """ 
+        Shows the main menu 
+        """
         self.window.configure(background=self.colour)
         self.f1 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         self.f1.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -89,7 +103,9 @@ class StartApp():
         self.raise_frame(self.f1)
     
     def exit(self):
-        """ Close the window and send the daily mail if required """
+        """ 
+        Closes the window and sends the daily mail if required 
+        """
         self.window.destroy()
         file=open("PROPS/props.properties",'r')
         props={}
@@ -132,7 +148,10 @@ class StartApp():
 
             
     def ChangPass(self):
-        """ Frame to change the window """
+        """ 
+        Frame to change the password associated with the user whose session is 
+            opened.
+        """
         self.f1.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -162,7 +181,13 @@ class StartApp():
         Button(f2, text='Go back to main menu', command=lambda:self.GoToMenu(f2)).grid(row=8, column=1)
     
     def statistics(self,frame):
-        """ Frame to show the statistics """
+        """ 
+        Frame to show the statistics related to the number of words per level.
+        
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+        """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -220,7 +245,14 @@ class StartApp():
         os.remove("IMG/temp2.png")
     
     def statsWord(self, frame):
-        """ Frame to show the statistics, ordered by word type """
+        """ 
+        Frame to show the statistics related to the number of words per word 
+            type.
+        
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+        """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -280,7 +312,10 @@ class StartApp():
         os.remove("IMG/temp2.png")
         
     def newWord(self):
-        """ Frame to add a new word """
+        """ 
+        This method presents a frame to fill in a form with the data of the new 
+            word to add. 
+        """
         self.f1.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -316,7 +351,18 @@ class StartApp():
         
         
     def AddWord(self,frame, word, example, meaning, syntax):
-        """ Insert the new word inside the database """
+        """ 
+        This method obtains the data from the form and uses it to add a new word 
+            inside the database associated with the current user. 
+        
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+            word: new word to be included
+            example: example in which the word is used
+            meaning: meaning of the word in the user's native language
+            syntaxis: type of word (verb, preposition...)
+        """
         C=WordsDDBB(self.loggedUser)
         now=time.localtime( time.time())
         mm=str(now.tm_mon) if len(str(now.tm_mon))==2 else "0"+str(now.tm_mon)
@@ -327,7 +373,19 @@ class StartApp():
         self.GoToMenu(frame)
       
     def goToTheory(self,frame):
-        """ Frame to go to the theory """
+        """ 
+        This method shows the index associated with the prounuciation theory. 
+        
+        If the file  "DOCS/book.pdf" exists, it creates a button to open it. 
+            This file should be a grammar book. The developer of this code does 
+            not accept any liability with regard to the copyright permissions to 
+            show that book.
+            
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+
+        """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -352,12 +410,24 @@ class StartApp():
         
     @staticmethod
     def warnCopy():
-        """ Show warning related to the entitlements """
+        """ 
+        This method shows warning related to the copyright permissions.
+        
+        Static method
+        """
         messagebox.showinfo("Warning", "You could be using a file without the author's permissions. \n The developer of this code does not accept any liability with regard to this content.")
         
         
     def vowelsPron(self,frame):
-        """ Frame to show the theory related to the vowels """
+        """ 
+        This method shows the theory associated with the prounuciation of the 
+            vowels. 
+            
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+
+        """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -379,7 +449,15 @@ class StartApp():
         Button(f2, text='Go back to \"Theory\"', command=lambda:self.goToTheory(f2)).grid(row=1, column=2)
     
     def diptPron(self,frame):
-        """ Frame to show the theory related to the diphthongs """
+        """ 
+        This method shows the theory associated with the prounuciation of the 
+            diphthongs. 
+            
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+
+        """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -400,7 +478,15 @@ class StartApp():
     
     
     def consPron(self,frame):
-        """ Frame to show the theory related to the consonants """
+        """ 
+        This method shows the theory associated with the prounuciation of the 
+            consonants. 
+            
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+
+        """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -421,11 +507,27 @@ class StartApp():
     
     @staticmethod
     def redirect(event):
-        """ redirect to a specific website """
+        """ 
+        This method opens the predefined web browser and shows the 
+            "wordreference"  website. 
+            
+        Static method
+        """
         webbrowser.open_new(r"http://www.wordreference.com")
     
     def lookUpWord(self,frame,word="brush"):
-        """ Frame to show transcriptions """
+        """ 
+        This method shows the phonetic transcription associated with a specific 
+            word. If no word is provided, the default one is "brush".
+            
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+            word: word whose phonetic transcription has to be shown to the user. 
+                This transcription is shown as an image. If no word is provided, 
+                the default one is "brush".
+
+        """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -524,7 +626,19 @@ class StartApp():
         
         
     def dictionary(self,frame,inputword="brush up"):
-        """ Frame to access to the dictionary """
+        """ 
+        This method shows the details associated with a specific word. If no
+            word is provided, the default one is "brush up".
+            
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+            inputword: word whose details has to be shown to the user. This 
+                details are: word name, meaning, example (if it was provided
+                when the word was added to the database) and level. If no
+                word is provided, the default one is "brush up".
+
+        """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -579,7 +693,10 @@ class StartApp():
 
 
     def deleteWord(self):
-        """ Frame to delete a specific word """
+        """ 
+        This method obtains the data from the word that the user wants to delete. 
+            This word is picked out from a ComboBox.
+        """
         self.f1.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -613,7 +730,15 @@ class StartApp():
         
         
     def ByeWord(self,frame, word):
-        """ Delete a specific word from the database """
+        """ 
+        This method obtains the data from the form and uses it to delete an
+            existing word from the database associated with the current user. 
+        
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+            word: word to be included
+        """
         word=word.split("[")[0].strip()
         if word!="brush up":
             C=WordsDDBB(self.loggedUser)
@@ -622,7 +747,14 @@ class StartApp():
         self.GoToMenu(frame)      
         
     def areDifferent(self,frame):
-        """ Return an error if 2 inputs dont match while trying to change the current passwords """
+        """ 
+        Returns an error if 2 inputs dont match while trying to change the 
+            current user's password.
+            
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+        """
         Label(frame,background=self.colour).grid(row=9)
         frame.columnconfigure(0,minsize=math.floor((self.width)/3))
         frame.columnconfigure(1,minsize=math.floor((self.width)/3))
@@ -633,7 +765,13 @@ class StartApp():
         
       
     def isCurpass(self,curp):
-        """ Check if 2 inputs dont match while trying to change the current passwords """
+        """ 
+        Checks if 2 inputs dont match while trying to change the current user's 
+            password.
+            
+        Args:
+            curp: string provided for the new user's password
+        """
         connection = sqlite3.connect ('users.db')
         cursor = connection.cursor()
         cursor.execute('SELECT * FROM USERS WHERE user=?', [self.currentUser])
@@ -649,7 +787,10 @@ class StartApp():
         return BOO
         
     def ChangePass(self,newpass,frame):
-        """ Proceed to change the password  """
+        """ 
+        This method connects to the database "users.db" and changes the user's 
+            password.
+        """
         C=UsersDDBB()
         C.changePass(self.currentUser, newpass)
         C.closeCon()
@@ -662,20 +803,52 @@ class StartApp():
         
         
     def raise_frame(self,frame):
-        """ Raise a new frame """
+        """ 
+        Raises a new frame inside the window.
+        
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+        """
         frame.tkraise()
         
     def GoToMenu(self,frame):
-        """ Destroy the current frame and show the main menu """
+        """ 
+        Destroys the current frame and shows the main menu.
+        
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+        """
         frame.destroy()
         self.MainMenu()
         
     def showError(self, frame):
-        """ Return an error related to incomplete information when you are filling in a form """
+        """ 
+        Returns an error related to incomplete information when the user is
+            filling in a form 
+        
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+        """
         messagebox.showerror("Wrong data", "Remember that all fields must be filled in ")
         
     def checkIfPlay(self,frame, level,wordOrMeaning,wordType):
-        """ Check if there are words enough before proceeding to play """
+        """ 
+        Checks if there are words enough before proceeding to play
+        
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+            level: level of the words that can be selected for the game. If all
+                levels can be picked out, then level="all levels".
+            wordOrMeaning: "Choose meaning" if the options to chose are the 
+                meanings, or "Choose word" if the options to chose are the word
+                names. 
+            wordType: word type of the words that can be selected for the game.
+                If all word types can be picked out, then wordType="all".
+        """
         nList=[]
         C=WordsDDBB(self.loggedUser)
         if str(level)!="all levels":
@@ -722,7 +895,9 @@ class StartApp():
             self.Play(frame, level,wordOrMeaning,wordType)
         
     def letsPlay(self):
-        """ Show the configuration of the game """
+        """ 
+        Shows a form with the configuration for the game. 
+        """
         self.f1.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -755,7 +930,20 @@ class StartApp():
         
         
     def Play(self,frame,level,wordOrMeaning,wordType):
-        """ Show the question and the options """
+        """ 
+        Shows the question and the options
+        
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+            level: level of the words that can be selected for the game. If all
+                levels can be picked out, then level="all levels".
+            wordOrMeaning: "Choose meaning" if the options to chose are the 
+                meanings, or "Choose word" if the options to chose are the word
+                names. 
+            wordType: word type of the words that can be selected for the game.
+                If all word types can be picked out, then wordType="all".
+        """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -806,7 +994,25 @@ class StartApp():
         Button(f2, text='Answer', command=lambda:self.answerPlay(f2,listWords[int(str(var.get()))],listWords[testonIndex],level,wordOrMeaning,wordType)).grid(row=14, column=0, columnspan=3) 
             
     def answerPlay(self,frame, answer, word,level,wordOrMeaning,wordType):
-        """ Show the results """
+        """ 
+        Shows if the player's answer is correct, update the level (+1 if 
+            correct; -1 if wrong. Levels between 1 and 10), adn shows the 
+            information about the correct answer (word name, meaning, example 
+            -if there is-,new level).
+        
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+            answer: option picked out by the user
+            word: correct answer
+            level: level of the words that can be selected for the game. If all
+                levels can be picked out, then level="all levels".
+            wordOrMeaning: "Choose meaning" if the options to chose are the 
+                meanings, or "Choose word" if the options to chose are the word
+                names. 
+            wordType: word type of the words that can be selected for the game.
+                If all word types can be picked out, then wordType="all".
+        """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -843,7 +1049,12 @@ class StartApp():
         Button(f2, text='Go back to main menu', command=lambda:self.GoToMenu(f2)).grid(row=14, column=0, columnspan=3) 
         
     def showWords(self):
-        """ Obtain the configuration before creating a file with all the words """
+        """ 
+        This method is executed when the user wants to obtain a pdf with the 
+            words stored in his/her database. Shows a form to obtain the 
+            details: order by "date","word","level" or "word type" and  
+            "ascending" or "descending" order 
+        """
         self.f1.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -874,7 +1085,19 @@ class StartApp():
         Button(f2, text='Go back to main menu', command=lambda:self.GoToMenu(f2)).grid(row=14, column=1) 
         
     def createFile(self,frame,orderBy,orderType):
-        """ Create a file with all the words """
+        """ 
+        This method creates a pdf with the words stored in the database. The
+            details have been obtained from the method showWords() and are
+            passed as arguments.
+            
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                    the new one.
+            orderBy: indicates the column to choose the order ("date","word",
+                "level" or "word type")
+            orderType: select the order type (ascending ,"ASC", or descending,
+                DESC")
+        """
         have=["date","word","level","word type"]
         need=[5,0,4,3]
         order=need[have.index(str(orderBy))]
@@ -898,7 +1121,20 @@ class StartApp():
         
         
     def Configure(self):
-        """ Show a panel with the configuration """
+        """ 
+        Shows a frame with the different variables that can be modified. The 
+            user can modify:
+                -The background colour. 
+                -If the user wants to activate the automatics mails (they are 
+                    desactivated by default). The user can choose the content
+                    of the email (statistics and/or word of the day).
+                -If the user wants to desactivate the automatics mails.
+                -The number of options of the game (4,5 or 6)
+                -If the user wants to restart the game (update the levels to 1).
+                -If the user wants to import data from an external database.
+                -If the user wants to open the log file.
+                -The password  
+        """
         self.f1.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/4))
@@ -944,7 +1180,15 @@ class StartApp():
         Button(f2, text='Go back to main menu', command=lambda:self.GoToMenu(f2)).grid(row=0, column=3,sticky=E) 
         
     def changeNoptions(self,frame,value):
-        """ Allows to change the number of options to play """
+        """ 
+        This method allows to change the number of options of the game.
+            
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                    the new one.
+            value: new number of options of the game. It is 4 by default. This 
+                value is stored in the properties file. 
+        """
         file=open("PROPS/props.properties",'r')
         props={}
         for line in file:
@@ -962,7 +1206,9 @@ class StartApp():
         self.GoToMenu(frame)
             
     def credits(self):
-        """ Show credits """
+        """ 
+        This method shows information about the application.
+        """
         self.f1.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -990,14 +1236,31 @@ class StartApp():
         Button(f2, text='Go back to main menu', command=lambda:self.GoToMenu(f2)).grid(row=0, column=2) 
         
     def restartLevels(self,frame):
-        """ Reset word levels to 1 """
+        """ 
+        This method connects to the database and updates the levels to 1 
+        """
         C=WordsDDBB(self.loggedUser)
         C.resetLevels()
         C.closeCon()
         self.GoToMenu(frame)
                 
     def automails(self,frame,includeword,includestats,mail,bool):
-        """ Send automatic mail """
+        """ 
+        This method allows to change the information about the mails. It 
+            connects to the properties file and save the new configuration.
+            
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                    the new one.
+            includeword: boolean. If True, the email will include information 
+                about one of the words in the user's database. This word is 
+                randomly generated.
+            includestats: boolean. If True, the email will include the  
+                statistics about the game to the user. 
+            mail: name of the recipient.
+            bool: boolean. If True, the automatic mails are activated. False 
+                otherwise
+        """
         file=open("PROPS/props.properties",'r')
         props={}
         for line in file:
@@ -1021,7 +1284,13 @@ class StartApp():
         
         
     def importData(self,frame):
-        """ Import words from a different database """
+        """
+        Chooses an external ddbb and imports its words. 
+
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                    the new one.
+        """
         yourdb="BBDD/"+str(self.loggedUser)+".db"
         now=time.localtime( time.time())
         mm=str(now.tm_mon) if len(str(now.tm_mon))==2 else "0"+str(now.tm_mon)
@@ -1056,7 +1325,14 @@ class StartApp():
                 messagebox.showerror("Caution", "Operation cannot be completed.\n Check if the file is a valid database")
         
     def changeColour(self,frame):
-        """ Change background colour """
+        """ 
+        This method allows to change the information about the background colour. 
+            It connects to the properties file and save the new configuration.
+            
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                    the new one.
+        """
         file=open("PROPS/props.properties",'r')
         props={}
         for line in file:
@@ -1076,7 +1352,17 @@ class StartApp():
             messagebox.showinfo("Done!", "Changes will be applied once the app is restarted")
         
     def updateSize(self,frame, widthNew, heightNew):
-        """ Change window seize """
+        """ 
+        This method allows to change the information about the size of the 
+            window. It connects to the properties file and save the new 
+            configuration.
+            
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                    the new one.
+            widthNew: new width
+            heightNew: new height
+        """
         if int(heightNew)<300:
             messagebox.showerror("Caution", "\"height\" value cannot be lower than 300 pixels.")
         else:
