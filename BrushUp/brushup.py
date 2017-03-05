@@ -11,6 +11,7 @@ import time
 class LoginPage(object):
     
     def __init__(self):
+        """ Create the window in which the user can log in and sign in """
         self.window = Tk()
         
         self.window.geometry("400x210")
@@ -48,6 +49,7 @@ class LoginPage(object):
         self.window.mainloop() 
         
     def login(self):
+            """ Login process """
             result = [self.user.get(), self.password.get()]
             con=UsersDDBB()
             users=list(con.showUsers())
@@ -62,6 +64,7 @@ class LoginPage(object):
                 self.raise_frame(self.f2)
                 
     def signin(self):
+            """ Check if a provided username already exists before proceeding to create it """
             result = [self.user.get(), self.password.get()]
             con=UsersDDBB()
             users=list(con.showUsers())
@@ -78,6 +81,7 @@ class LoginPage(object):
                 self.createUser(str(self.user.get()), str(self.password.get()))
                 
     def createUser(self,user,password):
+        """ Create a new user """
         C=UsersDDBB()
         C.insUs(user, password)
         C.closeCon()
@@ -105,6 +109,7 @@ class LoginPage(object):
         self.raise_frame(self.f1)
         
     def raise_frame(self,frame):
+        """ Raise a new frame inside the window """
         frame.tkraise()
     
 c=LoginPage()  

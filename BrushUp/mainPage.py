@@ -22,6 +22,7 @@ from __init__ import *
 class StartApp():
     
     def __init__(self,loggedUser):
+        """ Look for the properties file and create the new window """
         file=open("PROPS/props.properties",'r')
         props={}
         for line in file:
@@ -59,6 +60,7 @@ class StartApp():
         
         
     def MainMenu(self):
+        """ Show the main menu """
         self.window.configure(background=self.colour)
         self.f1 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         self.f1.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -87,6 +89,7 @@ class StartApp():
         self.raise_frame(self.f1)
     
     def exit(self):
+        """ Close the window and send the daily mail if required """
         self.window.destroy()
         file=open("PROPS/props.properties",'r')
         props={}
@@ -129,6 +132,7 @@ class StartApp():
 
             
     def ChangPass(self):
+        """ Frame to change the window """
         self.f1.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -158,6 +162,7 @@ class StartApp():
         Button(f2, text='Go back to main menu', command=lambda:self.GoToMenu(f2)).grid(row=8, column=1)
     
     def statistics(self,frame):
+        """ Frame to show the statistics """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -215,6 +220,7 @@ class StartApp():
         os.remove("IMG/temp2.png")
     
     def statsWord(self, frame):
+        """ Frame to show the statistics, ordered by word type """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -274,6 +280,7 @@ class StartApp():
         os.remove("IMG/temp2.png")
         
     def newWord(self):
+        """ Frame to add a new word """
         self.f1.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -309,6 +316,7 @@ class StartApp():
         
         
     def AddWord(self,frame, word, example, meaning, syntax):
+        """ Insert the new word inside the database """
         C=WordsDDBB(self.loggedUser)
         now=time.localtime( time.time())
         mm=str(now.tm_mon) if len(str(now.tm_mon))==2 else "0"+str(now.tm_mon)
@@ -319,6 +327,7 @@ class StartApp():
         self.GoToMenu(frame)
       
     def goToTheory(self,frame):
+        """ Frame to go to the theory """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -343,10 +352,12 @@ class StartApp():
         
     @staticmethod
     def warnCopy():
+        """ Show warning related to the entitlements """
         messagebox.showinfo("Warning", "You could be using a file without the author's permissions. \n The developer of this code does not accept any liability with regard to this content.")
         
         
     def vowelsPron(self,frame):
+        """ Frame to show the theory related to the vowels """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -368,6 +379,7 @@ class StartApp():
         Button(f2, text='Go back to \"Theory\"', command=lambda:self.goToTheory(f2)).grid(row=1, column=2)
     
     def diptPron(self,frame):
+        """ Frame to show the theory related to the diphthongs """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -388,6 +400,7 @@ class StartApp():
     
     
     def consPron(self,frame):
+        """ Frame to show the theory related to the consonants """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -408,9 +421,11 @@ class StartApp():
     
     @staticmethod
     def redirect(event):
+        """ redirect to a specific website """
         webbrowser.open_new(r"http://www.wordreference.com")
     
     def lookUpWord(self,frame,word="brush"):
+        """ Frame to show transcriptions """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -509,6 +524,7 @@ class StartApp():
         
         
     def dictionary(self,frame,inputword="brush up"):
+        """ Frame to access to the dictionary """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -563,6 +579,7 @@ class StartApp():
 
 
     def deleteWord(self):
+        """ Frame to delete a specific word """
         self.f1.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -596,6 +613,7 @@ class StartApp():
         
         
     def ByeWord(self,frame, word):
+        """ Delete a specific word from the database """
         word=word.split("[")[0].strip()
         if word!="brush up":
             C=WordsDDBB(self.loggedUser)
@@ -604,6 +622,7 @@ class StartApp():
         self.GoToMenu(frame)      
         
     def areDifferent(self,frame):
+        """ Return an error if 2 inputs dont match while trying to change the current passwords """
         Label(frame,background=self.colour).grid(row=9)
         frame.columnconfigure(0,minsize=math.floor((self.width)/3))
         frame.columnconfigure(1,minsize=math.floor((self.width)/3))
@@ -614,6 +633,7 @@ class StartApp():
         
       
     def isCurpass(self,curp):
+        """ Check if 2 inputs dont match while trying to change the current passwords """
         connection = sqlite3.connect ('users.db')
         cursor = connection.cursor()
         cursor.execute('SELECT * FROM USERS WHERE user=?', [self.currentUser])
@@ -629,6 +649,7 @@ class StartApp():
         return BOO
         
     def ChangePass(self,newpass,frame):
+        """ Proceed to change the password  """
         C=UsersDDBB()
         C.changePass(self.currentUser, newpass)
         C.closeCon()
@@ -641,16 +662,20 @@ class StartApp():
         
         
     def raise_frame(self,frame):
+        """ Raise a new frame """
         frame.tkraise()
         
     def GoToMenu(self,frame):
+        """ Destroy the current frame and show the main menu """
         frame.destroy()
         self.MainMenu()
         
     def showError(self, frame):
+        """ Return an error related to incomplete information when you are filling in a form """
         messagebox.showerror("Wrong data", "Remember that all fields must be filled in ")
         
     def checkIfPlay(self,frame, level,wordOrMeaning,wordType):
+        """ Check if there are words enough before proceeding to play """
         nList=[]
         C=WordsDDBB(self.loggedUser)
         if str(level)!="all levels":
@@ -697,6 +722,7 @@ class StartApp():
             self.Play(frame, level,wordOrMeaning,wordType)
         
     def letsPlay(self):
+        """ Show the configuration of the game """
         self.f1.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -729,6 +755,7 @@ class StartApp():
         
         
     def Play(self,frame,level,wordOrMeaning,wordType):
+        """ Show the question and the options """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -779,6 +806,7 @@ class StartApp():
         Button(f2, text='Answer', command=lambda:self.answerPlay(f2,listWords[int(str(var.get()))],listWords[testonIndex],level,wordOrMeaning,wordType)).grid(row=14, column=0, columnspan=3) 
             
     def answerPlay(self,frame, answer, word,level,wordOrMeaning,wordType):
+        """ Show the results """
         frame.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -815,6 +843,7 @@ class StartApp():
         Button(f2, text='Go back to main menu', command=lambda:self.GoToMenu(f2)).grid(row=14, column=0, columnspan=3) 
         
     def showWords(self):
+        """ Obtain the configuration before creating a file with all the words """
         self.f1.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -845,6 +874,7 @@ class StartApp():
         Button(f2, text='Go back to main menu', command=lambda:self.GoToMenu(f2)).grid(row=14, column=1) 
         
     def createFile(self,frame,orderBy,orderType):
+        """ Create a file with all the words """
         have=["date","word","level","word type"]
         need=[5,0,4,3]
         order=need[have.index(str(orderBy))]
@@ -868,6 +898,7 @@ class StartApp():
         
         
     def Configure(self):
+        """ Show a panel with the configuration """
         self.f1.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/4))
@@ -913,6 +944,7 @@ class StartApp():
         Button(f2, text='Go back to main menu', command=lambda:self.GoToMenu(f2)).grid(row=0, column=3,sticky=E) 
         
     def changeNoptions(self,frame,value):
+        """ Allows to change the number of options to play """
         file=open("PROPS/props.properties",'r')
         props={}
         for line in file:
@@ -930,6 +962,7 @@ class StartApp():
         self.GoToMenu(frame)
             
     def credits(self):
+        """ Show credits """
         self.f1.grid_forget()
         f2 = Frame(self.window ,width=self.width, height=self.height, style='My.TFrame')
         f2.columnconfigure(0,minsize=math.floor((self.width)/3))
@@ -957,12 +990,14 @@ class StartApp():
         Button(f2, text='Go back to main menu', command=lambda:self.GoToMenu(f2)).grid(row=0, column=2) 
         
     def restartLevels(self,frame):
+        """ Reset word levels to 1 """
         C=WordsDDBB(self.loggedUser)
         C.resetLevels()
         C.closeCon()
         self.GoToMenu(frame)
                 
     def automails(self,frame,includeword,includestats,mail,bool):
+        """ Send automatic mail """
         file=open("PROPS/props.properties",'r')
         props={}
         for line in file:
@@ -986,6 +1021,7 @@ class StartApp():
         
         
     def importData(self,frame):
+        """ Import words from a different database """
         yourdb="BBDD/"+str(self.loggedUser)+".db"
         now=time.localtime( time.time())
         mm=str(now.tm_mon) if len(str(now.tm_mon))==2 else "0"+str(now.tm_mon)
@@ -1020,6 +1056,7 @@ class StartApp():
                 messagebox.showerror("Caution", "Operation cannot be completed.\n Check if the file is a valid database")
         
     def changeColour(self,frame):
+        """ Change background colour """
         file=open("PROPS/props.properties",'r')
         props={}
         for line in file:
@@ -1039,6 +1076,7 @@ class StartApp():
             messagebox.showinfo("Done!", "Changes will be applied once the app is restarted")
         
     def updateSize(self,frame, widthNew, heightNew):
+        """ Change window seize """
         if int(heightNew)<300:
             messagebox.showerror("Caution", "\"height\" value cannot be lower than 300 pixels.")
         else:

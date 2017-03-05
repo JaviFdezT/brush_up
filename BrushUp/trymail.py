@@ -17,6 +17,7 @@ from __init__ import *
 
 class Email():
     def __init__(self,user):
+        """ Look for the properties """
         self.user=user
         self.fromaddr = 'brushupjft@gmail.com'
         self.smtpstring='smtp.gmail.com:587'
@@ -33,6 +34,7 @@ class Email():
         file.close()
 
     def sendmail(self,subject, text):
+        """ Send an email """
         # Enviando el correo
         server = smtplib.SMTP(self.smtpstring)
         server.starttls()
@@ -44,7 +46,7 @@ class Email():
         print("sent")
       
     def sendpic(self,bool,bool2):
-        
+        """ Send an email with the statistics and the word of the day """
         file=open("LOGS/log.log",'r')
         mailssent=[]
         for line in file:
