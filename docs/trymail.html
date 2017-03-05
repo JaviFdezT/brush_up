@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>BrushUp!: module trymail</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>trymail</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br></font></td></tr></table>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Email">class <strong>Email</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;to&nbsp;send&nbsp;automatic&nbsp;mails<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Email-__init__"><strong>__init__</strong></a>(self, user)</dt><dd><tt>The&nbsp;self&nbsp;is&nbsp;created.&nbsp;The&nbsp;sender&nbsp;and&nbsp;recipient&nbsp;are&nbsp;defined.&nbsp;The&nbsp;recipient<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;obtained&nbsp;from&nbsp;the&nbsp;properties&nbsp;file,&nbsp;where&nbsp;it&nbsp;is&nbsp;saved&nbsp;as:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"sendT"+user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;user:&nbsp;user&nbsp;name&nbsp;of&nbsp;the&nbsp;user&nbsp;who&nbsp;will&nbsp;receive&nbsp;the&nbsp;email.</tt></dd></dl>
+
+<dl><dt><a name="Email-sendmail"><strong>sendmail</strong></a>(self, subject, text)</dt><dd><tt>Sends&nbsp;an&nbsp;email&nbsp;with&nbsp;an&nbsp;specific&nbsp;content&nbsp;and&nbsp;subject<br>
+&nbsp;<br>
+Args:&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;subject:&nbsp;title&nbsp;of&nbsp;the&nbsp;email<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;content&nbsp;of&nbsp;the&nbsp;email</tt></dd></dl>
+
+<dl><dt><a name="Email-sendpic"><strong>sendpic</strong></a>(self, bool, bool2)</dt><dd><tt>Sends&nbsp;an&nbsp;email&nbsp;with&nbsp;information&nbsp;about&nbsp;the&nbsp;user&nbsp;account<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;boolean.&nbsp;If&nbsp;True,&nbsp;the&nbsp;email&nbsp;will&nbsp;include&nbsp;information&nbsp;about&nbsp;one<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;words&nbsp;in&nbsp;the&nbsp;user's&nbsp;database.&nbsp;This&nbsp;word&nbsp;is&nbsp;randomly&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generated.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool2:&nbsp;boolean.&nbsp;If&nbsp;True,&nbsp;the&nbsp;email&nbsp;will&nbsp;include&nbsp;the&nbsp;statistics&nbsp;about&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;game&nbsp;to&nbsp;the&nbsp;user.</tt></dd></dl>
+</div>
+</body></html>

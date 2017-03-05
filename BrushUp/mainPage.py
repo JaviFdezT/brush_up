@@ -329,7 +329,7 @@ class StartApp():
         Label(f2,background=self.colour).grid(row=2)
         
         word=StringVar()
-        Label(f2, text='New word:',background=self.colour).grid(row=2, column=1)
+        Label(f2, text='New word  (*): ',background=self.colour).grid(row=2, column=1)
         Entry(f2, textvariable=word).grid(row=3, column=1)
  
         example=StringVar()
@@ -337,16 +337,16 @@ class StartApp():
         Entry(f2, textvariable=example).grid(row=5, column=1)
         
         meaning=StringVar()
-        Label(f2, text='Meaning:',background=self.colour).grid(row=6, column=1)
+        Label(f2, text='Meaning  (*):',background=self.colour).grid(row=6, column=1)
         Entry(f2, textvariable=meaning).grid(row=7, column=1)
         
         syntax=StringVar()
-        Label(f2, text='Word type:',background=self.colour).grid(row=8, column=1)
+        Label(f2, text='Word type  (*):',background=self.colour).grid(row=8, column=1)
         input_position = Combobox(f2, values=sorted(["s","v","prep","conj","adv","adj","phrase/idiom"]),textvariable=syntax)
         input_position.current(6)
         input_position.grid(row=9, column=1)
       
-        Button(f2, text='Insert new word', command=lambda:self.AddWord(f2, word.get(), example.get(), meaning.get(), syntax.get()) if len(str(word.get()))>0  else self.showError(f2)).grid(row=10, column=1)
+        Button(f2, text='Insert new word', command=lambda:self.AddWord(f2, word.get(), example.get(), meaning.get(), syntax.get()) if len(str(word.get()))>0 and len(str(meaning.get()))>0  else self.showError(f2)).grid(row=10, column=1)
         Button(f2, text='Go back to main menu', command=lambda:self.GoToMenu(f2)).grid(row=14, column=1) 
         
         
@@ -518,7 +518,9 @@ class StartApp():
     def lookUpWord(self,frame,word="brush"):
         """ 
         This method shows the phonetic transcription associated with a specific 
-            word. If no word is provided, the default one is "brush".
+            word. If no word is provided, the default one is "brush". The
+            phonetic transcription is provided by the external library 
+            "pronouncing"
             
         Args:
             frame: previous frame of the window to be deleted before creating 
@@ -1167,7 +1169,7 @@ class StartApp():
         input_position.grid(row=int(13), column=1)
         input_position=Radiobutton(f2, text="6", variable=var, value=6)
         input_position.grid(row=int(14), column=1)
-        Button(f2, text='Chose number of options', command=lambda:self.changeNoptions(f2,int(str(var.get())))).grid(row=15, column=1)
+        Button(f2, text='Choose number of options', command=lambda:self.changeNoptions(f2,int(str(var.get())))).grid(row=15, column=1)
         
         Button(f2, text='Restart game', command=lambda:self.restartLevels(f2)).grid(row=3, column=2)
         Label(f2,text="".ljust(30,"-"),background=self.colour).grid(row=4, column=2)
@@ -1237,7 +1239,7 @@ class StartApp():
         
     def restartLevels(self,frame):
         """ 
-        This method connects to the database and updates the levels to 1 
+        This method connects to the database and updates the level of all the words to 1 
         """
         C=WordsDDBB(self.loggedUser)
         C.resetLevels()

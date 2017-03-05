@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>BrushUp!: module mainPage</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>mainPage</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href="index.html">index</a><br></font></td></tr></table>
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="StartApp">class <strong>StartApp</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;is&nbsp;the&nbsp;class&nbsp;that&nbsp;will&nbsp;define&nbsp;the&nbsp;window&nbsp;where&nbsp;the&nbsp;game&nbsp;will&nbsp;appear,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;its&nbsp;configuration,&nbsp;the&nbsp;dictionaries&nbsp;and&nbsp;theory.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="StartApp-AddWord"><strong>AddWord</strong></a>(self, frame, word, example, meaning, syntax)</dt><dd><tt>This&nbsp;method&nbsp;obtains&nbsp;the&nbsp;data&nbsp;from&nbsp;the&nbsp;form&nbsp;and&nbsp;uses&nbsp;it&nbsp;to&nbsp;add&nbsp;a&nbsp;new&nbsp;word&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inside&nbsp;the&nbsp;database&nbsp;associated&nbsp;with&nbsp;the&nbsp;current&nbsp;user.&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;word:&nbsp;new&nbsp;word&nbsp;to&nbsp;be&nbsp;included<br>
+&nbsp;&nbsp;&nbsp;&nbsp;example:&nbsp;example&nbsp;in&nbsp;which&nbsp;the&nbsp;word&nbsp;is&nbsp;used<br>
+&nbsp;&nbsp;&nbsp;&nbsp;meaning:&nbsp;meaning&nbsp;of&nbsp;the&nbsp;word&nbsp;in&nbsp;the&nbsp;user's&nbsp;native&nbsp;language<br>
+&nbsp;&nbsp;&nbsp;&nbsp;syntaxis:&nbsp;type&nbsp;of&nbsp;word&nbsp;(verb,&nbsp;preposition...)</tt></dd></dl>
+
+<dl><dt><a name="StartApp-ByeWord"><strong>ByeWord</strong></a>(self, frame, word)</dt><dd><tt>This&nbsp;method&nbsp;obtains&nbsp;the&nbsp;data&nbsp;from&nbsp;the&nbsp;form&nbsp;and&nbsp;uses&nbsp;it&nbsp;to&nbsp;delete&nbsp;an<br>
+&nbsp;&nbsp;&nbsp;&nbsp;existing&nbsp;word&nbsp;from&nbsp;the&nbsp;database&nbsp;associated&nbsp;with&nbsp;the&nbsp;current&nbsp;user.&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;word:&nbsp;word&nbsp;to&nbsp;be&nbsp;included</tt></dd></dl>
+
+<dl><dt><a name="StartApp-ChangPass"><strong>ChangPass</strong></a>(self)</dt><dd><tt>Frame&nbsp;to&nbsp;change&nbsp;the&nbsp;password&nbsp;associated&nbsp;with&nbsp;the&nbsp;user&nbsp;whose&nbsp;session&nbsp;is&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;opened.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-ChangePass"><strong>ChangePass</strong></a>(self, newpass, frame)</dt><dd><tt>This&nbsp;method&nbsp;connects&nbsp;to&nbsp;the&nbsp;database&nbsp;"users.db"&nbsp;and&nbsp;changes&nbsp;the&nbsp;user's&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;password.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-Configure"><strong>Configure</strong></a>(self)</dt><dd><tt>Shows&nbsp;a&nbsp;frame&nbsp;with&nbsp;the&nbsp;different&nbsp;variables&nbsp;that&nbsp;can&nbsp;be&nbsp;modified.&nbsp;The&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;user&nbsp;can&nbsp;modify:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The&nbsp;background&nbsp;colour.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-If&nbsp;the&nbsp;user&nbsp;wants&nbsp;to&nbsp;activate&nbsp;the&nbsp;automatics&nbsp;mails&nbsp;(they&nbsp;are&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;desactivated&nbsp;by&nbsp;default).&nbsp;The&nbsp;user&nbsp;can&nbsp;choose&nbsp;the&nbsp;content<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;email&nbsp;(statistics&nbsp;and/or&nbsp;word&nbsp;of&nbsp;the&nbsp;day).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-If&nbsp;the&nbsp;user&nbsp;wants&nbsp;to&nbsp;desactivate&nbsp;the&nbsp;automatics&nbsp;mails.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The&nbsp;number&nbsp;of&nbsp;options&nbsp;of&nbsp;the&nbsp;game&nbsp;(4,5&nbsp;or&nbsp;6)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-If&nbsp;the&nbsp;user&nbsp;wants&nbsp;to&nbsp;restart&nbsp;the&nbsp;game&nbsp;(update&nbsp;the&nbsp;levels&nbsp;to&nbsp;1).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-If&nbsp;the&nbsp;user&nbsp;wants&nbsp;to&nbsp;import&nbsp;data&nbsp;from&nbsp;an&nbsp;external&nbsp;database.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-If&nbsp;the&nbsp;user&nbsp;wants&nbsp;to&nbsp;open&nbsp;the&nbsp;log&nbsp;file.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-The&nbsp;password</tt></dd></dl>
+
+<dl><dt><a name="StartApp-GoToMenu"><strong>GoToMenu</strong></a>(self, frame)</dt><dd><tt>Destroys&nbsp;the&nbsp;current&nbsp;frame&nbsp;and&nbsp;shows&nbsp;the&nbsp;main&nbsp;menu.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-MainMenu"><strong>MainMenu</strong></a>(self)</dt><dd><tt>Shows&nbsp;the&nbsp;main&nbsp;menu</tt></dd></dl>
+
+<dl><dt><a name="StartApp-Play"><strong>Play</strong></a>(self, frame, level, wordOrMeaning, wordType)</dt><dd><tt>Shows&nbsp;the&nbsp;question&nbsp;and&nbsp;the&nbsp;options<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;level&nbsp;of&nbsp;the&nbsp;words&nbsp;that&nbsp;can&nbsp;be&nbsp;selected&nbsp;for&nbsp;the&nbsp;game.&nbsp;If&nbsp;all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;levels&nbsp;can&nbsp;be&nbsp;picked&nbsp;out,&nbsp;then&nbsp;level="all&nbsp;levels".<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wordOrMeaning:&nbsp;"Choose&nbsp;meaning"&nbsp;if&nbsp;the&nbsp;options&nbsp;to&nbsp;chose&nbsp;are&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meanings,&nbsp;or&nbsp;"Choose&nbsp;word"&nbsp;if&nbsp;the&nbsp;options&nbsp;to&nbsp;chose&nbsp;are&nbsp;the&nbsp;word<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;names.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wordType:&nbsp;word&nbsp;type&nbsp;of&nbsp;the&nbsp;words&nbsp;that&nbsp;can&nbsp;be&nbsp;selected&nbsp;for&nbsp;the&nbsp;game.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;all&nbsp;word&nbsp;types&nbsp;can&nbsp;be&nbsp;picked&nbsp;out,&nbsp;then&nbsp;wordType="all".</tt></dd></dl>
+
+<dl><dt><a name="StartApp-__init__"><strong>__init__</strong></a>(self, loggedUser)</dt><dd><tt>Once&nbsp;this&nbsp;class&nbsp;is&nbsp;executed,&nbsp;this&nbsp;function&nbsp;is&nbsp;run.&nbsp;<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;creates&nbsp;the&nbsp;window&nbsp;in&nbsp;which&nbsp;the&nbsp;user&nbsp;can&nbsp;play&nbsp;with&nbsp;his/her&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;content.&nbsp;&nbsp;The&nbsp;properties&nbsp;of&nbsp;the&nbsp;new&nbsp;window&nbsp;are&nbsp;obtained&nbsp;from&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;properties&nbsp;file.<br>
+&nbsp;<br>
+The&nbsp;self&nbsp;is&nbsp;defined</tt></dd></dl>
+
+<dl><dt><a name="StartApp-answerPlay"><strong>answerPlay</strong></a>(self, frame, answer, word, level, wordOrMeaning, wordType)</dt><dd><tt>Shows&nbsp;if&nbsp;the&nbsp;player's&nbsp;answer&nbsp;is&nbsp;correct,&nbsp;update&nbsp;the&nbsp;level&nbsp;(+1&nbsp;if&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;correct;&nbsp;-1&nbsp;if&nbsp;wrong.&nbsp;Levels&nbsp;between&nbsp;1&nbsp;and&nbsp;10),&nbsp;adn&nbsp;shows&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;about&nbsp;the&nbsp;correct&nbsp;answer&nbsp;(word&nbsp;name,&nbsp;meaning,&nbsp;example&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-if&nbsp;there&nbsp;is-,new&nbsp;level).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;answer:&nbsp;option&nbsp;picked&nbsp;out&nbsp;by&nbsp;the&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;word:&nbsp;correct&nbsp;answer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;level&nbsp;of&nbsp;the&nbsp;words&nbsp;that&nbsp;can&nbsp;be&nbsp;selected&nbsp;for&nbsp;the&nbsp;game.&nbsp;If&nbsp;all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;levels&nbsp;can&nbsp;be&nbsp;picked&nbsp;out,&nbsp;then&nbsp;level="all&nbsp;levels".<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wordOrMeaning:&nbsp;"Choose&nbsp;meaning"&nbsp;if&nbsp;the&nbsp;options&nbsp;to&nbsp;chose&nbsp;are&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meanings,&nbsp;or&nbsp;"Choose&nbsp;word"&nbsp;if&nbsp;the&nbsp;options&nbsp;to&nbsp;chose&nbsp;are&nbsp;the&nbsp;word<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;names.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wordType:&nbsp;word&nbsp;type&nbsp;of&nbsp;the&nbsp;words&nbsp;that&nbsp;can&nbsp;be&nbsp;selected&nbsp;for&nbsp;the&nbsp;game.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;all&nbsp;word&nbsp;types&nbsp;can&nbsp;be&nbsp;picked&nbsp;out,&nbsp;then&nbsp;wordType="all".</tt></dd></dl>
+
+<dl><dt><a name="StartApp-areDifferent"><strong>areDifferent</strong></a>(self, frame)</dt><dd><tt>Returns&nbsp;an&nbsp;error&nbsp;if&nbsp;2&nbsp;inputs&nbsp;dont&nbsp;match&nbsp;while&nbsp;trying&nbsp;to&nbsp;change&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;current&nbsp;user's&nbsp;password.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-automails"><strong>automails</strong></a>(self, frame, includeword, includestats, mail, bool)</dt><dd><tt>This&nbsp;method&nbsp;allows&nbsp;to&nbsp;change&nbsp;the&nbsp;information&nbsp;about&nbsp;the&nbsp;mails.&nbsp;It&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;connects&nbsp;to&nbsp;the&nbsp;properties&nbsp;file&nbsp;and&nbsp;save&nbsp;the&nbsp;new&nbsp;configuration.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;includeword:&nbsp;boolean.&nbsp;If&nbsp;True,&nbsp;the&nbsp;email&nbsp;will&nbsp;include&nbsp;information&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;about&nbsp;one&nbsp;of&nbsp;the&nbsp;words&nbsp;in&nbsp;the&nbsp;user's&nbsp;database.&nbsp;This&nbsp;word&nbsp;is&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;randomly&nbsp;generated.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;includestats:&nbsp;boolean.&nbsp;If&nbsp;True,&nbsp;the&nbsp;email&nbsp;will&nbsp;include&nbsp;the&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statistics&nbsp;about&nbsp;the&nbsp;game&nbsp;to&nbsp;the&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mail:&nbsp;name&nbsp;of&nbsp;the&nbsp;recipient.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;boolean.&nbsp;If&nbsp;True,&nbsp;the&nbsp;automatic&nbsp;mails&nbsp;are&nbsp;activated.&nbsp;False&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise</tt></dd></dl>
+
+<dl><dt><a name="StartApp-changeColour"><strong>changeColour</strong></a>(self, frame)</dt><dd><tt>This&nbsp;method&nbsp;allows&nbsp;to&nbsp;change&nbsp;the&nbsp;information&nbsp;about&nbsp;the&nbsp;background&nbsp;colour.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;It&nbsp;connects&nbsp;to&nbsp;the&nbsp;properties&nbsp;file&nbsp;and&nbsp;save&nbsp;the&nbsp;new&nbsp;configuration.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-changeNoptions"><strong>changeNoptions</strong></a>(self, frame, value)</dt><dd><tt>This&nbsp;method&nbsp;allows&nbsp;to&nbsp;change&nbsp;the&nbsp;number&nbsp;of&nbsp;options&nbsp;of&nbsp;the&nbsp;game.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;new&nbsp;number&nbsp;of&nbsp;options&nbsp;of&nbsp;the&nbsp;game.&nbsp;It&nbsp;is&nbsp;4&nbsp;by&nbsp;default.&nbsp;This&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;is&nbsp;stored&nbsp;in&nbsp;the&nbsp;properties&nbsp;file.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-checkIfPlay"><strong>checkIfPlay</strong></a>(self, frame, level, wordOrMeaning, wordType)</dt><dd><tt>Checks&nbsp;if&nbsp;there&nbsp;are&nbsp;words&nbsp;enough&nbsp;before&nbsp;proceeding&nbsp;to&nbsp;play<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;level:&nbsp;level&nbsp;of&nbsp;the&nbsp;words&nbsp;that&nbsp;can&nbsp;be&nbsp;selected&nbsp;for&nbsp;the&nbsp;game.&nbsp;If&nbsp;all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;levels&nbsp;can&nbsp;be&nbsp;picked&nbsp;out,&nbsp;then&nbsp;level="all&nbsp;levels".<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wordOrMeaning:&nbsp;"Choose&nbsp;meaning"&nbsp;if&nbsp;the&nbsp;options&nbsp;to&nbsp;chose&nbsp;are&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meanings,&nbsp;or&nbsp;"Choose&nbsp;word"&nbsp;if&nbsp;the&nbsp;options&nbsp;to&nbsp;chose&nbsp;are&nbsp;the&nbsp;word<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;names.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wordType:&nbsp;word&nbsp;type&nbsp;of&nbsp;the&nbsp;words&nbsp;that&nbsp;can&nbsp;be&nbsp;selected&nbsp;for&nbsp;the&nbsp;game.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;all&nbsp;word&nbsp;types&nbsp;can&nbsp;be&nbsp;picked&nbsp;out,&nbsp;then&nbsp;wordType="all".</tt></dd></dl>
+
+<dl><dt><a name="StartApp-consPron"><strong>consPron</strong></a>(self, frame)</dt><dd><tt>This&nbsp;method&nbsp;shows&nbsp;the&nbsp;theory&nbsp;associated&nbsp;with&nbsp;the&nbsp;prounuciation&nbsp;of&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;consonants.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-createFile"><strong>createFile</strong></a>(self, frame, orderBy, orderType)</dt><dd><tt>This&nbsp;method&nbsp;creates&nbsp;a&nbsp;pdf&nbsp;with&nbsp;the&nbsp;words&nbsp;stored&nbsp;in&nbsp;the&nbsp;database.&nbsp;The<br>
+&nbsp;&nbsp;&nbsp;&nbsp;details&nbsp;have&nbsp;been&nbsp;obtained&nbsp;from&nbsp;the&nbsp;method&nbsp;<a href="#StartApp-showWords">showWords</a>()&nbsp;and&nbsp;are<br>
+&nbsp;&nbsp;&nbsp;&nbsp;passed&nbsp;as&nbsp;arguments.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;orderBy:&nbsp;indicates&nbsp;the&nbsp;column&nbsp;to&nbsp;choose&nbsp;the&nbsp;order&nbsp;("date","word",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"level"&nbsp;or&nbsp;"word&nbsp;type")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;orderType:&nbsp;select&nbsp;the&nbsp;order&nbsp;type&nbsp;(ascending&nbsp;,"ASC",&nbsp;or&nbsp;descending,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESC")</tt></dd></dl>
+
+<dl><dt><a name="StartApp-credits"><strong>credits</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;shows&nbsp;information&nbsp;about&nbsp;the&nbsp;application.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-deleteWord"><strong>deleteWord</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;obtains&nbsp;the&nbsp;data&nbsp;from&nbsp;the&nbsp;word&nbsp;that&nbsp;the&nbsp;user&nbsp;wants&nbsp;to&nbsp;delete.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;word&nbsp;is&nbsp;picked&nbsp;out&nbsp;from&nbsp;a&nbsp;ComboBox.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-dictionary"><strong>dictionary</strong></a>(self, frame, inputword='brush up')</dt><dd><tt>This&nbsp;method&nbsp;shows&nbsp;the&nbsp;details&nbsp;associated&nbsp;with&nbsp;a&nbsp;specific&nbsp;word.&nbsp;If&nbsp;no<br>
+&nbsp;&nbsp;&nbsp;&nbsp;word&nbsp;is&nbsp;provided,&nbsp;the&nbsp;default&nbsp;one&nbsp;is&nbsp;"brush&nbsp;up".<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inputword:&nbsp;word&nbsp;whose&nbsp;details&nbsp;has&nbsp;to&nbsp;be&nbsp;shown&nbsp;to&nbsp;the&nbsp;user.&nbsp;This&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;details&nbsp;are:&nbsp;word&nbsp;name,&nbsp;meaning,&nbsp;example&nbsp;(if&nbsp;it&nbsp;was&nbsp;provided<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when&nbsp;the&nbsp;word&nbsp;was&nbsp;added&nbsp;to&nbsp;the&nbsp;database)&nbsp;and&nbsp;level.&nbsp;If&nbsp;no<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;word&nbsp;is&nbsp;provided,&nbsp;the&nbsp;default&nbsp;one&nbsp;is&nbsp;"brush&nbsp;up".</tt></dd></dl>
+
+<dl><dt><a name="StartApp-diptPron"><strong>diptPron</strong></a>(self, frame)</dt><dd><tt>This&nbsp;method&nbsp;shows&nbsp;the&nbsp;theory&nbsp;associated&nbsp;with&nbsp;the&nbsp;prounuciation&nbsp;of&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;diphthongs.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-exit"><strong>exit</strong></a>(self)</dt><dd><tt>Closes&nbsp;the&nbsp;window&nbsp;and&nbsp;sends&nbsp;the&nbsp;daily&nbsp;mail&nbsp;if&nbsp;required</tt></dd></dl>
+
+<dl><dt><a name="StartApp-goToTheory"><strong>goToTheory</strong></a>(self, frame)</dt><dd><tt>This&nbsp;method&nbsp;shows&nbsp;the&nbsp;index&nbsp;associated&nbsp;with&nbsp;the&nbsp;prounuciation&nbsp;theory.&nbsp;<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;file&nbsp;&nbsp;"DOCS/book.pdf"&nbsp;exists,&nbsp;it&nbsp;creates&nbsp;a&nbsp;button&nbsp;to&nbsp;open&nbsp;it.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;file&nbsp;should&nbsp;be&nbsp;a&nbsp;grammar&nbsp;book.&nbsp;The&nbsp;developer&nbsp;of&nbsp;this&nbsp;code&nbsp;does&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;not&nbsp;accept&nbsp;any&nbsp;liability&nbsp;with&nbsp;regard&nbsp;to&nbsp;the&nbsp;copyright&nbsp;permissions&nbsp;to&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;show&nbsp;that&nbsp;book.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-importData"><strong>importData</strong></a>(self, frame)</dt><dd><tt>Chooses&nbsp;an&nbsp;external&nbsp;ddbb&nbsp;and&nbsp;imports&nbsp;its&nbsp;words.&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-isCurpass"><strong>isCurpass</strong></a>(self, curp)</dt><dd><tt>Checks&nbsp;if&nbsp;2&nbsp;inputs&nbsp;dont&nbsp;match&nbsp;while&nbsp;trying&nbsp;to&nbsp;change&nbsp;the&nbsp;current&nbsp;user's&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;password.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;curp:&nbsp;string&nbsp;provided&nbsp;for&nbsp;the&nbsp;new&nbsp;user's&nbsp;password</tt></dd></dl>
+
+<dl><dt><a name="StartApp-letsPlay"><strong>letsPlay</strong></a>(self)</dt><dd><tt>Shows&nbsp;a&nbsp;form&nbsp;with&nbsp;the&nbsp;configuration&nbsp;for&nbsp;the&nbsp;game.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-lookUpWord"><strong>lookUpWord</strong></a>(self, frame, word='brush')</dt><dd><tt>This&nbsp;method&nbsp;shows&nbsp;the&nbsp;phonetic&nbsp;transcription&nbsp;associated&nbsp;with&nbsp;a&nbsp;specific&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;word.&nbsp;If&nbsp;no&nbsp;word&nbsp;is&nbsp;provided,&nbsp;the&nbsp;default&nbsp;one&nbsp;is&nbsp;"brush".<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;word:&nbsp;word&nbsp;whose&nbsp;phonetic&nbsp;transcription&nbsp;has&nbsp;to&nbsp;be&nbsp;shown&nbsp;to&nbsp;the&nbsp;user.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;transcription&nbsp;is&nbsp;shown&nbsp;as&nbsp;an&nbsp;image.&nbsp;If&nbsp;no&nbsp;word&nbsp;is&nbsp;provided,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;default&nbsp;one&nbsp;is&nbsp;"brush".</tt></dd></dl>
+
+<dl><dt><a name="StartApp-newWord"><strong>newWord</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;presents&nbsp;a&nbsp;frame&nbsp;to&nbsp;fill&nbsp;in&nbsp;a&nbsp;form&nbsp;with&nbsp;the&nbsp;data&nbsp;of&nbsp;the&nbsp;new&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;word&nbsp;to&nbsp;add.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-raise_frame"><strong>raise_frame</strong></a>(self, frame)</dt><dd><tt>Raises&nbsp;a&nbsp;new&nbsp;frame&nbsp;inside&nbsp;the&nbsp;window.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-restartLevels"><strong>restartLevels</strong></a>(self, frame)</dt><dd><tt>This&nbsp;method&nbsp;connects&nbsp;to&nbsp;the&nbsp;database&nbsp;and&nbsp;updates&nbsp;the&nbsp;levels&nbsp;to&nbsp;1</tt></dd></dl>
+
+<dl><dt><a name="StartApp-showError"><strong>showError</strong></a>(self, frame)</dt><dd><tt>Returns&nbsp;an&nbsp;error&nbsp;related&nbsp;to&nbsp;incomplete&nbsp;information&nbsp;when&nbsp;the&nbsp;user&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;filling&nbsp;in&nbsp;a&nbsp;form&nbsp;<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-showWords"><strong>showWords</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;executed&nbsp;when&nbsp;the&nbsp;user&nbsp;wants&nbsp;to&nbsp;obtain&nbsp;a&nbsp;pdf&nbsp;with&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;words&nbsp;stored&nbsp;in&nbsp;his/her&nbsp;database.&nbsp;Shows&nbsp;a&nbsp;form&nbsp;to&nbsp;obtain&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;details:&nbsp;order&nbsp;by&nbsp;"date","word","level"&nbsp;or&nbsp;"word&nbsp;type"&nbsp;and&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"ascending"&nbsp;or&nbsp;"descending"&nbsp;order</tt></dd></dl>
+
+<dl><dt><a name="StartApp-statistics"><strong>statistics</strong></a>(self, frame)</dt><dd><tt>Frame&nbsp;to&nbsp;show&nbsp;the&nbsp;statistics&nbsp;related&nbsp;to&nbsp;the&nbsp;number&nbsp;of&nbsp;words&nbsp;per&nbsp;level.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-statsWord"><strong>statsWord</strong></a>(self, frame)</dt><dd><tt>Frame&nbsp;to&nbsp;show&nbsp;the&nbsp;statistics&nbsp;related&nbsp;to&nbsp;the&nbsp;number&nbsp;of&nbsp;words&nbsp;per&nbsp;word&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="StartApp-updateSize"><strong>updateSize</strong></a>(self, frame, widthNew, heightNew)</dt><dd><tt>This&nbsp;method&nbsp;allows&nbsp;to&nbsp;change&nbsp;the&nbsp;information&nbsp;about&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window.&nbsp;It&nbsp;connects&nbsp;to&nbsp;the&nbsp;properties&nbsp;file&nbsp;and&nbsp;save&nbsp;the&nbsp;new&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;configuration.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;widthNew:&nbsp;new&nbsp;width<br>
+&nbsp;&nbsp;&nbsp;&nbsp;heightNew:&nbsp;new&nbsp;height</tt></dd></dl>
+
+<dl><dt><a name="StartApp-vowelsPron"><strong>vowelsPron</strong></a>(self, frame)</dt><dd><tt>This&nbsp;method&nbsp;shows&nbsp;the&nbsp;theory&nbsp;associated&nbsp;with&nbsp;the&nbsp;prounuciation&nbsp;of&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vowels.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame:&nbsp;previous&nbsp;frame&nbsp;of&nbsp;the&nbsp;window&nbsp;to&nbsp;be&nbsp;deleted&nbsp;before&nbsp;creating&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;new&nbsp;one.</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="StartApp-redirect"><strong>redirect</strong></a>(event)</dt><dd><tt>This&nbsp;method&nbsp;opens&nbsp;the&nbsp;predefined&nbsp;web&nbsp;browser&nbsp;and&nbsp;shows&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"wordreference"&nbsp;&nbsp;website.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Static&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="StartApp-warnCopy"><strong>warnCopy</strong></a>()</dt><dd><tt>This&nbsp;method&nbsp;shows&nbsp;warning&nbsp;related&nbsp;to&nbsp;the&nbsp;copyright&nbsp;permissions.<br>
+&nbsp;<br>
+Static&nbsp;method</tt></dd></dl>
+</div>
+</body></html>

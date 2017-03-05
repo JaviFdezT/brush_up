@@ -1,0 +1,167 @@
+<html><head><title>BrushUp!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Brush Up!</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial">&nbsp;</font></td></tr></table>
+
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong></strong></big></font></td></tr> 
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="bbdd.html">bbdd</a><br>
+</td><td width="25%" valign=top><a href="brushup.html">brushup</a><br>
+</td><td width="25%" valign=top><a href="mainPage.html">mainPage</a><br>
+</td><td width="25%" valign=top><a href="trymail.html">trymail</a><br>
+</td></tr></table></td></tr></table></div>
+
+<h1 style="text-indent: 3em;">Brush Up!</h1>
+
+<h1 style="text-indent: 4em;">1. Introduction</h1>
+
+<p style="text-indent: 5em;">This app allows you to brush up your language skills and manage those words that you are studying in a database. Moreover, you can find an annex about pronunciation.</p>
+
+<h1 style="text-indent: 4em;">2. First steps</h1>
+
+<ol>
+	<li>
+	<p>Install requiriments:</p>
+
+	<p>a) Install Python3</p>
+
+	<p>b) Install external libraries(tkinter,sqlite3; matplotlib, time, os, shutil, random, math, webbrowser, PIL, pronouncing, logging, smtplib, email).</p>
+
+	<p>In linux (command line):</p>
+
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; sudo apt-get install python3-tk</p>
+
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; sudo apt-get install libsqlite3-dev</p>
+
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; sudo pip3 matplotlib</p>
+
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; sudo pip3 Pillow</p>
+
+	<p>&nbsp;&nbsp;&nbsp;&nbsp; sudo pip3 pronouncing</p>
+	</li>
+	<li>
+	<p>Start the application by executing the script inside &quot;brush_up/BrushUp/brushup.py&quot;. It can be done from the command line: &quot;python3 brushup.py&quot;.</p>
+	</li>
+	<img src="IMG/loginpage.png">
+	<li>
+	<p>Create your account and then log in. You can also log into the admin&#39;s account by using username &quot;admin&quot; and pasword &quot;pass&quot;.</p>
+	</li>
+	<li>
+	<p>Onced logged into your personal account, the main page will pop up. You dictionary will contain only one word (brush up), so you can import a list of words from the admin&#39;s database (brush_up/BrushUp/BBDD/admin.db) by clicking on &quot;Administration&quot;-&gt;&quot;Import data from database&quot;.</p>
+	</li>
+	<img src="IMG/mainpage.png">
+</ol>
+
+<h1 style="text-indent: 4em;">3. Dealing with the dictionary</h1>
+
+<ol>
+	<li>
+	<p>Insert a new word:</p>
+
+	<p>On the main menu, you will find the button "Insert new word". If you click on it, a new frame will pop up. There you will have to fill in a form with the new word to be added. The fields marked with an asterisk are obligatory. Once filled in, you can insert the word by clicking on "Insert new word" </p></li>
+	<li>
+	<p>Delete an existing word:</p>
+
+	<p>On the main menu, you will find the button "Delete word". If you click on it, a new frame will pop up. There, you will have to choose the word to be delete and click on "Delete word" </p>
+	</li>
+	<li>
+	<p>Dictionary:</p>
+
+	<p>You can access to the information of the all the words inside your database. For that you have to click on the button "Dictionary" on the main menu. On the new frame, you can look for any of your words.  </p>
+	</li>
+	<img src="IMG/dict.png">
+</ol>
+
+
+
+<h1 style="text-indent: 4em;">4. Theory</h1>
+<p style="text-indent: 5em;">On the main menu, click on the button "Pronunciation".
+<ol>
+	<li>
+	<p>Show theory:</p>
+
+	<p>You can find information about the phonemes by clicking on "Pronunciation:vowels", "Pronunciation:diphthong" and "Pronunciation:consonants"</p></li>
+	<li>
+	<p>Grammar theory:</p>
+
+	<p>If the file  "DOCS/book.pdf" exists, you will find a button to open this book. This file should be a grammar book.</p></p> The developer of this code does not accept any liability with regard to the copyright permissions to show that book.</p>
+	</li>
+	<li>
+	<p>Dictionary:</p>
+
+	<p>You can obtain the phonetic transcription associated with a specific  word by clicking on "Look Up". </p>
+	</li>
+	<img src="IMG/theory.png">
+</ol>
+
+<h1 style="text-indent: 4em;">5. Configuration</h1>
+<p style="text-indent: 5em;">On the main menu, click on the button "Administration".</p>
+<img src="IMG/config.png">
+<ol>
+	<li>
+	<p>Change background colour:</p>
+
+	<p>Click on "Change background colour" and select the desired colour</p></li>
+	<li>
+	<p>Activate automatic mails:</p>
+
+	<p>The user can activate the automatics mails (they are desactivated by default). For that purpose, you have to provide your mail, select the information that you wants to receive (statistics, word of the day) and click on "Activate automatic mails"</p>
+	</li>
+	<li>
+	<p>Activate automatic mails:</p>
+
+	<p>The user can desactivate the automatics mails by clicking on "Cancel automatic mails" </p>
+	</li>
+	<li>
+	<p>Choose number of options:</p>
+
+	<p>The user can change the number of options of the game. It is 4 by default. </p></li>
+
+	<li>
+	<p>Restart game:</p>
+
+	<p>The user can update the level of all the words to 1. For that, you have to click on "Restart game" </p></li>
+
+	<li>
+	<p>Import data from database:</p>
+
+	<p>The user can import data from an external database.  </p></li>
+
+	<li>
+	<p>Choose number of options:</p>
+
+	<p>The user can change the number of options of the game. It is 4 by default. You have to click on "Import data from database" and choose the external database. It can take up to several minutes</p></li>
+</ol>
+
+<h1 style="text-indent: 4em;">6. Game</h1>
+<p style="text-indent: 5em;">On the main menu, click on the button "Play". Choose the configuration and proceed to play. Note that you will need at least 4,5 or 6 (depending on the number of options chosen) to be able to play. </p>
+<p style="text-indent: 5em;">You can see your progress by clicking on "Statistics"</p><br>
+<img src="IMG/gameconfig.png"><br>
+<img src="IMG/game.png"><br>
+<img src="IMG/stats.png">
+<br><br><br><br><br>
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Javier Fdez. Troncoso</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial">&nbsp;</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial">javierfdeztroncoso@gmail.com<br></font></td></tr></table>
+
+</body></html>
