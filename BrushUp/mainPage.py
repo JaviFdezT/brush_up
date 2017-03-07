@@ -145,7 +145,7 @@ class StartApp():
             for prop in props:
                 file.write(str(prop)+"="+str(props[prop])+"\n")
             file.close()
-
+        sys.exit(0)
             
     def ChangPass(self):
         """ 
@@ -346,8 +346,43 @@ class StartApp():
         input_position.current(6)
         input_position.grid(row=9, column=1)
       
-        Button(f2, text='Insert new word', command=lambda:self.AddWord(f2, word.get(), example.get(), meaning.get(), syntax.get()) if len(str(word.get()))>0 and len(str(meaning.get()))>0  else self.showError(f2)).grid(row=10, column=1)
+        Button(f2, text='Insert new word', command=lambda:self.AddWord(f2, word.get(), example.get(), meaning.get(), syntax.get()) if len(str(word.get()))>0 and len(str(meaning.get()))>0 and len(str(word.get()).strip().replace("\t",""))<100 and len(str(example.get()).strip().replace("\t",""))<100 and len(str(meaning.get()).strip().replace("\t",""))<100 and str(syntax.get()) in ["s","v","prep","conj","adv","adj","phrase/idiom"] else self.showError1() if len(str(word.get()))==0 or len(str(meaning.get()))==0 else self.showError2() if len(str(word.get()).strip().replace("\t",""))>100 or len(str(example.get()).strip().replace("\t",""))>100 or len(str(meaning.get()).strip().replace("\t",""))>100 else self.showError3()).grid(row=10, column=1)
         Button(f2, text='Go back to main menu', command=lambda:self.GoToMenu(f2)).grid(row=14, column=1) 
+        
+    @staticmethod
+    def showError1():
+        """ 
+        Returns an error related to incomplete information when the user is
+            filling in a form
+        
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+        """
+        messagebox.showerror("Wrong data", "All the fields marked with an asterisk are compulsory.")
+       
+    @staticmethod
+    def showError2():
+        """ 
+        Returns an error if the number of characters exceeds the minimum value 
+            allowed (100)
+        
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+        """
+        messagebox.showerror("Wrong data", "No field can exceed 100 characters.")
+    
+    @staticmethod
+    def showError3():
+        """ 
+        Returns an error if the word type is not valid
+        
+        Args:
+            frame: previous frame of the window to be deleted before creating 
+                the new one. 
+        """
+        messagebox.showerror("Wrong data", "Word type is not valid. Pick out one of the choices provided")
         
         
     def AddWord(self,frame, word, example, meaning, syntax):
@@ -368,7 +403,7 @@ class StartApp():
         mm=str(now.tm_mon) if len(str(now.tm_mon))==2 else "0"+str(now.tm_mon)
         dd=str(now.tm_mday) if len(str(now.tm_mday))==2 else "0"+str(now.tm_mday)
         day="{!s}/{!s}/{!s}".format(str(now.tm_year),mm,dd)
-        C.insWord(str(word).strip(),str(example).strip(),str(meaning).strip(),str(syntax).strip(),1,day)
+        C.insWord(str(word).strip().replace("\t",""),str(example).strip().replace("\t",""),str(meaning).strip().replace("\t",""),str(syntax).strip(),1,day)
         C.closeCon()
         self.GoToMenu(frame)
       
@@ -825,17 +860,6 @@ class StartApp():
         frame.destroy()
         self.MainMenu()
         
-    def showError(self, frame):
-        """ 
-        Returns an error related to incomplete information when the user is
-            filling in a form 
-        
-        Args:
-            frame: previous frame of the window to be deleted before creating 
-                the new one. 
-        """
-        messagebox.showerror("Wrong data", "Remember that all fields must be filled in ")
-        
     def checkIfPlay(self,frame, level,wordOrMeaning,wordType):
         """ 
         Checks if there are words enough before proceeding to play
@@ -1279,7 +1303,7 @@ class StartApp():
             file.write(str(prop)+"="+str(props[prop])+"\n")
         file.close()
         if bool:
-            messagebox.showinfo("Done!", "You will receive a mail every time you click on \"Exit\"")
+            messagebox.showinfo("Done!", "Service is now activated!")
         else:
             messagebox.showinfo("Done!", "Service has been desactivated")
         self.GoToMenu(frame)

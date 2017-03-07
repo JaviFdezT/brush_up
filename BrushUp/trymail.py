@@ -99,25 +99,28 @@ class Email():
                 words=C.showAll()
                 C.closeCon()
                 word=random.choice(words)
+                try:
+                    font1 = ImageFont.truetype("arial.ttf", 42)
+                    font2 = ImageFont.truetype("arial.ttf", 22)
+                    font3 = ImageFont.truetype("arial.ttf", 12)
+                    img=Image.new("RGBA", (750,300),"#C8F9F9")
+                    draw = ImageDraw.Draw(img)
+                    draw.text((25, 20),word[0],"#000000",font=font1)
+                    if len(str(word[1]))>1:
+                        draw.text((25, 100),"Example: "+str(word[1]),"#000000",font=font3)
+                    draw.text((25, 150),"Meaning: "+str(word[2]),"#000000",font=font2)
+                    draw.ellipse((670, 270, 690, 290), fill="#FF4500")
+                    draw.text((680, 275),"JaviFdezT","#000000",font=font3)
+                    draw.text((575, 270),"BrushUp!!","#000000",font=font2)
+                    draw = ImageDraw.Draw(img)
 
-                font1 = ImageFont.truetype("arial.ttf", 42)
-                font2 = ImageFont.truetype("arial.ttf", 22)
-                font3 = ImageFont.truetype("arial.ttf", 12)
-                img=Image.new("RGBA", (750,300),"#C8F9F9")
-                draw = ImageDraw.Draw(img)
-                draw.text((25, 20),word[0],"#000000",font=font1)
-                if len(str(word[1]))>1:
-                    draw.text((25, 100),"Example: "+str(word[1]),"#000000",font=font3)
-                draw.text((25, 150),"Meaning: "+str(word[2]),"#000000",font=font2)
-                draw.ellipse((670, 270, 690, 290), fill="#FF4500")
-                draw.text((680, 275),"JaviFdezT","#000000",font=font3)
-                draw.text((575, 270),"BrushUp!!","#000000",font=font2)
-                draw = ImageDraw.Draw(img)
-
-                img.save("temp.png")
-                img_data = open("temp.png", 'rb').read()
-
-            text = MIMEText("test")
+                    img.save("temp.png")
+                    img_data = open("temp.png", 'rb').read()
+                except OSError:
+                    print("Word of the day couldnt be generated. Font not downloaded")
+                    logging.error("Word of the day couldnt be generated. Font not downloaded")
+                    bool="False"
+            text = MIMEText("mail")
             msg.attach(text)
             if bool=="True":
                 image = MIMEImage(img_data, name=os.path.basename("temp.png"))
@@ -129,7 +132,7 @@ class Email():
 
             try:
                 s = smtplib.SMTP(self.smtpstring)
-            except:
+            except NameError:
                 s = smtplib.SMTP("smtp.gmail.com:587")
             s.ehlo()
             s.starttls()
