@@ -887,7 +887,7 @@ class StartApp():
             else:
                 nList=[]
                 for i in ["s","v","prep","conj","adv","adj","phrase/idiom"]:
-                    listWords=C.showWordsByLevelwordTypewordType(int(str(level)),i)
+                    listWords=C.showWordsByLevelwordType(int(str(level)),i)
                     nList.append(len(listWords))
                 n=min(nList)
         else:
