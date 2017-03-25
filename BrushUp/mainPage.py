@@ -1214,6 +1214,7 @@ class StartApp():
         Label(f2,text="".ljust(30,"-"),background=self.colour).grid(row=11, column=1)
         var=IntVar()
         input_position=Radiobutton(f2, text="4", variable=var, value=4)
+        input_position
         input_position.grid(row=int(12), column=1)
         input_position=Radiobutton(f2, text="5", variable=var, value=5)
         input_position.grid(row=int(13), column=1)
@@ -1248,6 +1249,8 @@ class StartApp():
             if len(temp)==2:
                 props[str(temp[0])]=str(temp[1])
         file.close()
+        if str(value) not in ["4","5","6"]:
+            value="4"
         props["noptions"]=str(value) 
         file=open("PROPS/props.properties",'w')
         for prop in props:
