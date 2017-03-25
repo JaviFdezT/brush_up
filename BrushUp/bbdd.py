@@ -221,7 +221,7 @@ class WordsDDBB():
             logging.error( "{!s}.  Please, try it again in a few minutes".format(str(er)))
             self.connection.rollback()
 
-    def deleteWord(self, word):
+    def deleteWord(self, word,wordtype):
         """ 
         This method allows to delete an existing word. 
         
@@ -230,7 +230,7 @@ class WordsDDBB():
             
         """
         try:
-            self.cursor.execute('DELETE FROM WORDS WHERE word=?', [word])
+            self.cursor.execute('DELETE FROM WORDS WHERE word=? AND syntaxis=?', [word,wordtype])
             self.connection.commit()
             logging.info("Deleting word: {!s} ".format(str(word)))
         except sqlite3.OperationalError as er:

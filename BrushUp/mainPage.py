@@ -399,13 +399,37 @@ class StartApp():
             syntaxis: type of word (verb, preposition...)
         """
         C=WordsDDBB(self.loggedUser)
-        now=time.localtime( time.time())
-        mm=str(now.tm_mon) if len(str(now.tm_mon))==2 else "0"+str(now.tm_mon)
-        dd=str(now.tm_mday) if len(str(now.tm_mday))==2 else "0"+str(now.tm_mday)
-        day="{!s}/{!s}/{!s}".format(str(now.tm_year),mm,dd)
-        C.insWord(str(word).strip().replace("\t",""),str(example).strip().replace("\t",""),str(meaning).strip().replace("\t",""),str(syntax).strip(),1,day)
+        words=C.showWords()
+        exists=False
+        for i in words:
+            if str(i[0])==str(word).strip().replace("\t","") and str(i[3])==str(syntax).strip().replace("\t",""):
+                exists=True
+                break
+        if exists:
+            if str(syntax).strip().replace("\t","")=="v":
+                type="verb"
+            elif str(syntax).strip().replace("\t","")=="adj":
+                type="adjective"
+            elif str(syntax).strip().replace("\t","")=="adv":
+                type="adverb"
+            elif str(syntax).strip().replace("\t","")=="prep":
+                type="preposition"
+            elif str(syntax).strip().replace("\t","")=="s":
+                type="noun"
+            elif str(syntax).strip().replace("\t","")=="conj":
+                type="conjunction"
+            else:
+                type="input"
+            messagebox.showerror("Caution", "This {} already exists in your database".format(type))
+        if not exists:
+            now=time.localtime( time.time())
+            mm=str(now.tm_mon) if len(str(now.tm_mon))==2 else "0"+str(now.tm_mon)
+            dd=str(now.tm_mday) if len(str(now.tm_mday))==2 else "0"+str(now.tm_mday)
+            day="{!s}/{!s}/{!s}".format(str(now.tm_year),mm,dd)
+            C.insWord(str(word).strip().replace("\t",""),str(example).strip().replace("\t",""),str(meaning).strip().replace("\t",""),str(syntax).strip(),1,day)
         C.closeCon()
-        self.GoToMenu(frame)
+        if not exists:
+            self.GoToMenu(frame)
       
     def goToTheory(self,frame):
         """ 
@@ -689,13 +713,14 @@ class StartApp():
         C.closeCon()
         if inputword=="brush up":
             for i in words:
-                if str(i[0])=="brush up":
+                if str(i[0])=="brush up" and str(i[3])=="v":
                     inword=i
                     break
         else:
+            wordtype=inputword.split("[")[1].strip().replace("]","")
             inputword=inputword.split("[")[0].strip()
             for i in words:
-                if str(i[0])==inputword:
+                if str(i[0])==inputword and str(i[3])==wordtype:
                     inword=i
                     break
         
@@ -776,10 +801,11 @@ class StartApp():
                 the new one. 
             word: word to be included
         """
+        wordtype=word.split("[")[1].strip().replace("]","")
         word=word.split("[")[0].strip()
         if word!="brush up":
             C=WordsDDBB(self.loggedUser)
-            C.deleteWord(word)
+            C.deleteWord(word,wordtype)
             C.closeCon()
         self.GoToMenu(frame)      
         
