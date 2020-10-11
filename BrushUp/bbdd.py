@@ -2,6 +2,7 @@
 
 import time
 import os
+import sys
 import sqlite3
 from __init__ import *
 
@@ -419,12 +420,6 @@ class WordsDDBB():
    
             
 if __name__=="__main__":
-    C=UsersDDBB()
-    C.dropTables()
-    C.createTables()
-    C.insUs("admin","pass")
-    print(C.showUsers())
-    C.closeCon()
     C=WordsDDBB("admin")
     C.dropTables()
     C.createTables()
@@ -432,5 +427,17 @@ if __name__=="__main__":
     mm=str(now.tm_mon) if len(str(now.tm_mon))==2 else "0"+str(now.tm_mon)
     dd=str(now.tm_mday) if len(str(now.tm_mday))==2 else "0"+str(now.tm_mday)
     day="{!s}/{!s}/{!s}".format(str(now.tm_year),mm,dd)
-    C.insWord("brush up","My spoken French is quite good, but I would like to brush up a bit","repasar, hacer un repaso","v",1,day)
+    file=open("BBDD/bkp/words20180105.txt","r")
+    for line in file:
+                line=line.replace("\n","")
+                data=line.split("|")
+                if len(data)==3:
+                        data.append("")
+                elif len(data)>4 or  len(data)<3:
+                        print(data)
+                C.insWord(data[0].strip(),data[3].strip(),data[2].strip(),data[1].strip(),1,day)
+    file.close()
     C.closeCon()
+
+
+

@@ -55,6 +55,8 @@ class LoginPage(object):
         Button(self.f1, text='Sign Un', command=lambda:self.signup()).grid(row=5, column=2)
         Button(self.f2, text='Log in', command=lambda:self.raise_frame(self.f2) or self.login()).grid(row=4, column=2)
         Button(self.f2, text='Sign Up', command=lambda:self.signup()).grid(row=5, column=2)
+        Button(self.f1, text='Exit', command=lambda:self.window.destroy()).grid(row=7, column=2)
+        Button(self.f2, text='Exit', command=lambda:self.window.destroy()).grid(row=7, column=2)
         
         self.raise_frame(self.f1)
         self.window.mainloop() 

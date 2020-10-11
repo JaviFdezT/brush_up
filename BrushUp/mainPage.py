@@ -18,6 +18,7 @@ from PIL import ImageDraw
 from  bbdd import UsersDDBB,WordsDDBB
 from  trymail import Email
 from __init__ import *
+from docx import Document
 
 class StartApp():
     """ 
@@ -346,7 +347,7 @@ class StartApp():
         input_position.current(6)
         input_position.grid(row=9, column=1)
       
-        Button(f2, text='Insert new word', command=lambda:self.AddWord(f2, word.get(), example.get(), meaning.get(), syntax.get()) if len(str(word.get()))>0 and len(str(meaning.get()))>0 and len(str(word.get()).strip().replace("\t",""))<100 and len(str(example.get()).strip().replace("\t",""))<100 and len(str(meaning.get()).strip().replace("\t",""))<100 and str(syntax.get()) in ["s","v","prep","conj","adv","adj","phrase/idiom"] else self.showError1() if len(str(word.get()))==0 or len(str(meaning.get()))==0 else self.showError2() if len(str(word.get()).strip().replace("\t",""))>100 or len(str(example.get()).strip().replace("\t",""))>100 or len(str(meaning.get()).strip().replace("\t",""))>100 else self.showError3()).grid(row=10, column=1)
+        Button(f2, text='Insert new word', command=lambda:self.AddWord(f2, word.get(), example.get(), meaning.get(), syntax.get()) if len(str(word.get()))>0 and len(str(meaning.get()))>0 and len(str(word.get()).strip().replace("\t",""))<75 and len(str(example.get()).strip().replace("\t",""))<100 and len(str(meaning.get()).strip().replace("\t",""))<90 and str(syntax.get()) in ["s","v","prep","conj","adv","adj","phrase/idiom"] else self.showError1() if len(str(word.get()))==0 or len(str(meaning.get()))==0 else self.showError2() if len(str(word.get()).strip().replace("\t",""))>75 or len(str(example.get()).strip().replace("\t",""))>100 or len(str(meaning.get()).strip().replace("\t",""))>90 else self.showError3()).grid(row=10, column=1)
         Button(f2, text='Go back to main menu', command=lambda:self.GoToMenu(f2)).grid(row=14, column=1) 
         
     @staticmethod
@@ -1161,15 +1162,27 @@ class StartApp():
         else:
             ordt=True
         words.sort(key=lambda x: x[order], reverse=ordt)
-        filename =  filedialog.asksaveasfilename(initialdir = "/",defaultextension='.txt',title = "Save file as",filetypes = (("text plain files","*.txt"),("all files","*.*")))
         try:
-            fobj = open(filename,"w")
+            filename =  filedialog.asksaveasfilename(initialdir = "./DOCS",defaultextension='.doc',title = "Save file as",filetypes = (("text plain files","*.doc"),("all files","*.*")))
+            document = Document()
             for i in words:
-                fobj.write("{!s}\n".format('|'.join([i[0],i[2],i[1]])))
-            fobj.close()
+                w=str(i[0])
+                example=str(i[1])
+                mean=str(i[2])
+                sin=str(i[3])
+                p = document.add_paragraph()
+                p.add_run(w).bold = True
+                p.add_run(" [" +sin+"]").bold = True
+                if len(str(i[1]))>2:
+                    p.add_run(": "+mean+" | ")
+                else:
+                    p.add_run(": "+mean)
+                p.add_run(example).italic = True
+            document.save(filename)
             self.GoToMenu(frame)
         except TypeError : pass
         except FileNotFoundError: pass
+        except AttributeError:pass
         
         
     def Configure(self):
